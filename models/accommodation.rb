@@ -5,4 +5,7 @@ class Accommodation < ActiveRecord::Base
   self.inheritance_column = :_disabled
 
   enumerize :type, in: %i{villa apartment bb}
+
+  belongs_to :region
+  translates :title, :meta_desc
 end
