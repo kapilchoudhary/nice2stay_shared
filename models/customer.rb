@@ -5,6 +5,8 @@ class Customer < ActiveRecord::Base
   has_many :options, dependent: :destroy
   has_many :leads, dependent: :destroy
 
+  belongs_to :country,  touch: true
+
   validates :surname, :name, presence: true
 
   validates :name, uniqueness: { scope: :surname }
