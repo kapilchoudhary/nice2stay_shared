@@ -5,7 +5,7 @@ class Country < ActiveRecord::Base
   has_many :customers, dependent: :destroy
 
   after_update { self.accommodations.each(&:touch) }
-
+  validates_uniqueness_of :name
   translates :name, :content
   globalize_accessors
 
